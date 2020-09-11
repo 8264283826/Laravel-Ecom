@@ -98,7 +98,7 @@ class ProductImageController extends Controller
              if($request->img)
              {
               $image=time().'.'.$request->img->extension();
-             $request->img->move(public_path('images'),$image);
+             $request->img->money_format(format, number)ve(public_path('images'),$image);
              }
          else
          {
