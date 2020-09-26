@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contact = Contact::all();
+        return view('website.backend.contact.index',compact('contact'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('website.backend.contact.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Contact::create($request->all());
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -58,6 +60,8 @@ class ContactController extends Controller
     public function edit(Contact $contact)
     {
         //
+       
+        return view('website.backend.contact.update',compact(''));
     }
 
     /**
@@ -69,7 +73,8 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $contact->update($request->all());
+        return redirect()->route('contact.index');
     }
 
     /**
@@ -80,6 +85,7 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return redirect()->route('contact.index');
     }
 }

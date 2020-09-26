@@ -89,31 +89,49 @@ class ProductImageController extends Controller
      * @param  \App\ProductImage  $productImage
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductImage $productImage)
+    public function update(Request $request, ProductImage $productimage)
     {
-        
-         $slug = Str::slug($request->image_title,'-');
-           // if($request->image)
-           // {
-             if($request->img)
-             {
-              $image=time().'.'.$request->img->extension();
-             $request->img->money_format(format, number)ve(public_path('images'),$image);
-             }
-         else
-         {
-            $image=$productImage->img;
-         }
-        
-        $productImage->update([
-          'product_id'=>$request->product_id,
-          'image_title'=>$request->image_title,
-          'image'=>$image,
-          'slug'=>$slug
+         
+        $slug=Str::slug($request->img_title,'-');
+        if($request->image){
+        $image = time().'.'.$request->image->extension();
 
-        ]);
-        return redirect()->route('productimage.index');
+            $request->image->move(public_path('images'), $image);
+
+        }
+
+        else{
+            $image=$productimage->image;
+        }
+
+
+
+        $productimage->update([
+             'img_title'=>$request->image_title,
+             'img'=>$image,
+             'product_id'=>$request->product_id,
+             'slug'=>$slug,
+
+         ]);
+         return redirect()->route('productimage.index');
     }
+   // $slug = Str::slug($request->image_title,'-');
+   //      $image=time().'.'.$request->image->extension();
+   //      $request->image->move(public_path('images'),$image);
+   //       ProductImage::create([
+   //         'product_id'=>$request->product_id,
+   //         'image_title'=>$request->image_title,
+   //         'image'=>$image,
+
+   //         'slug'=>$slug
+          
+
+   //       ]);
+   //       return redirect()->route('productimage.index');
+
+     
+
+    
 
     /**
      * Remove the specified resource from storage.
@@ -121,8 +139,11 @@ class ProductImageController extends Controller
      * @param  \App\ProductImage  $productImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductImage $productImage)
+    public function destroy(ProductImage $productimage)
     {
         //
+         
+        $productimage->delete();
+        return redirect()->route('productimage.index');
     }
 }

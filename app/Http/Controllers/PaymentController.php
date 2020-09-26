@@ -15,6 +15,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
+        $payment = Payment::all();
+        return view('website.backend.payment.index',compact('payment'));
     }
 
     /**

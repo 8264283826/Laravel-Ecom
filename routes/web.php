@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('website.frontend.layout.main');
-});
+// Route::get('/', function () {
+//     return view('website.frontend.layout.main');
+// });
+
+
 
 Auth::routes();
+Route::resource('/','FrondendController');
+Route::get('/shop','')
 
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/dashboard', function () {
@@ -27,6 +31,12 @@ Route::get('/dashboard','BackendController@index')->name('backend.index');
 Route::resource('/dashboard/productcategory','ProductCategoryController');
 Route::resource('/dashboard/product','ProductController');
 Route::resource('/dashboard/productimage','ProductImageController');
+Route::resource('/dashboard/customerdetail','CustomerDetailController');
+Route::resource('/dashboard/payment','PaymentController');
+Route::resource('/dashboard/contact','ContactController');
+Route::resource('/dashboard/contactform','ContactFormController');
+Route::resource('/dashboard/customerdetail','CustomerDetailController');
+
 
 // Route::get('/shop', function () {
 //     return view('website.otherpage.shop');

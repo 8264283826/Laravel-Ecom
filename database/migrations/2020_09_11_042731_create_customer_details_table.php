@@ -24,7 +24,7 @@ class CreateCustomerDetailsTable extends Migration
             $table->text('address1');
             $table->text('address2');
             $table->text('town');
-            $table->text('district');
+            $table->text('district')    ;
             $table->text('post_code');
             $table->text('other_notes');
 

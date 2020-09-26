@@ -2,21 +2,7 @@
 @section('content')
  
  <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Responsive example<small>Users</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                </div>
+                
 
  <div class="x_content">
                    
@@ -59,14 +45,16 @@
                            <form  method = 'POST' action="{{route('productimage.destroy',$procat->id)}}">
                             <a class="btn btn-app" href="{{route('productimage.edit',$procat->id)}}" style="color: red">
                             <i class="fa fa-edit" style="color: blue">
-                              
+                           
                             </i>
                             Edit
                           </a>
                         
                          
                             @csrf
-                          <button class="btn btn-app" href = "{{route('productimage.destroy',$procat->id)}}"style="color: red">
+
+                          <button class="btn btn-app" href = "{{route('productimage.destroy',
+                          $procat->id)}}"style="color: red">
                             @method('DELETE')
                             <i class="fa fa-trash" style="color: blue">
                               

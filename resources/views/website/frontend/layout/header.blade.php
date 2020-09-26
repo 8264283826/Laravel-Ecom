@@ -11,7 +11,7 @@
                             <nav>                                                
                                 <ul id="navigation">  
                                     <li><a href="/">Home</a></li>
-                                    <li><a href="shop">shop</a></li>
+                                    <li><a href="{{url('/shop')}}">shop</a></li>
                                     <li><a href="about">about</a></li>
                                     <li class="hot"><a href="#">Latest</a>
                                         <ul class="submenu">
